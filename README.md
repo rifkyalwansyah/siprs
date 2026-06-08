@@ -1,6 +1,6 @@
-# 🏥 SIPRS - Sistem Informasi Pengelolaan Rumah Sakit
+# 🏥 SIPRS - Sistem Informasi Sarana Dan Prasarana Kantor Kecamatan Cibarusah
 
-SIPRS (Sistem Informasi Pengelolaan Rumah Sakit) adalah aplikasi berbasis web yang dikembangkan untuk membantu pengelolaan data inventaris, aset, dan administrasi rumah sakit secara lebih efektif dan terstruktur.
+SIPRS (Sistem Informasi Pengelolaan Kantor Kecamatan Cibarusah) adalah aplikasi berbasis web yang dikembangkan untuk membantu pengelolaan data inventaris, aset secara lebih efektif dan terstruktur.
 
 ## 📋 Fitur Utama
 
