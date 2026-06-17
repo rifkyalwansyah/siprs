@@ -1,6 +1,6 @@
-# 🏥 SIPRS - Sistem Informasi Pengelolaan Rumah Sakit
+# 🏥 SIPRS - Sistem Informasi Sarana Dan Prasarana Kantor Kecamatan Cibarusah
 
-SIPRS (Sistem Informasi Pengelolaan Rumah Sakit) adalah aplikasi berbasis web yang dikembangkan untuk membantu pengelolaan data inventaris, aset, dan administrasi rumah sakit secara lebih efektif dan terstruktur.
+SIPRS (Sistem Informasi Pengelolaan Kantor Kecamatan Cibarusah) adalah aplikasi berbasis web yang dikembangkan untuk membantu pengelolaan data inventaris, aset secara lebih efektif dan terstruktur.
 
 ## 📋 Fitur Utama
 
@@ -106,7 +106,7 @@ melalui XAMPP Control Panel.
 Kemudian akses:
 
 ```text
-http://localhost/siprs
+siprs_cibarusah
 ```
 
 ## 🔐 Login Default
@@ -121,18 +121,23 @@ Password : admin123
 
 ## 📸 Screenshot
 
-Tambahkan screenshot aplikasi pada folder:
-
-```text
-assets/screenshots/
-```
-
-Contoh:
-
 * Halaman Login
+  <img width="1536" height="1024" alt="login page" src="https://github.com/user-attachments/assets/c9650da0-53b0-4c48-a9f1-9775a65af8f9" />
+
 * Dashboard
+  <img width="1918" height="968" alt="dashboard page" src="https://github.com/user-attachments/assets/1532fced-c4e5-4a26-9c02-6ed9bf934784" />
+
 * Data Inventaris
+  <img width="1918" height="966" alt="inventaris aset page" src="https://github.com/user-attachments/assets/b21ab862-bf06-47c6-a066-bb244c0aa8c6" />
+
+<img width="1918" height="967" alt="master data kategori page" src="https://github.com/user-attachments/assets/c5e8d188-7411-4457-9840-61790fd1f610" />
+
+<img width="1918" height="971" alt="master data ruangan page" src="https://github.com/user-attachments/assets/a70f6d39-83c6-4792-ab3a-1b41a19e8a7f" />
+
 * Form Tambah Inventaris
+<img width="1918" height="971" alt="master data ruangan page" src="https://github.com/user-attachments/assets/4f6e5f4e-f462-486b-aed1-90c4de33de7c" />
+
+<img width="1918" height="963" alt="tambah kategori aset page" src="https://github.com/user-attachments/assets/100c4fe9-8bf6-43cd-9ffa-858f0882fd00" />
 
 ## 🌟 Pengembangan Selanjutnya
 
