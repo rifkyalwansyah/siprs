@@ -10,153 +10,96 @@ if(!isset($_SESSION['id']))
 include '../../config/koneksi.php';
 
 $data = mysqli_query(
-    $conn,
-    "SELECT * FROM ruangan ORDER BY id_ruangan DESC"
+$conn,
+"SELECT * FROM ruangan ORDER BY id_ruangan DESC"
 );
+
+include '../../templates/header.php';
+include '../../templates/sidebar.php';
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta charset="UTF-8">
-
-<title>Data Ruangan</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="../../assets/css/style.css">
-
-</head>
-
-<body>
-
-<div class="sidebar">
-
-<div class="logo">
-
-<img src="../../assets/images/logo.png">
-
-<h5>SIPRS<br>CIBARUSAH</h5>
-
-</div>
-
-<div class="menu">
-
-<a href="../../dashboard.php">
-🏠 Dashboard
-</a>
-
-<a href="../kategori/index.php">
-📁 Data Kategori
-</a>
-
-<a href="index.php" class="active">
-🏢 Data Ruangan
-</a>
-
-<a href="../../logout.php">
-🚪 Logout
-</a>
-
-</div>
-
-</div>
-
-<div class="main">
-
-<div class="topbar">
-
-<h3>MASTER DATA RUANGAN</h3>
-
-<div>
-
-<?php echo $_SESSION['nama']; ?>
-
-</div>
-
-</div>
 
 <div class="content">
 
-<div class="card shadow">
+    <div class="topbar">
+        <h3>Data Ruangan</h3>
+        <p class="mb-0 text-muted">
+            Kelola data ruangan Kecamatan Cibarusah
+        </p>
+    </div>
 
-<div class="card-header d-flex justify-content-between">
+    <div class="card card-custom">
 
-<h5>Data Ruangan</h5>
+        <div class="card-body">
 
-<a
-href="tambah.php"
-class="btn btn-primary">
+            <a href="tambah.php" class="btn btn-primary mb-3">
+                <i class="fa fa-plus"></i>
+                Tambah Ruangan
+            </a>
 
-Tambah Ruangan
+            <table class="table table-bordered table-hover">
 
-</a>
+                <thead class="table-primary">
+
+                <tr>
+                    <th width="80">No</th>
+                    <th>Nama Ruangan</th>
+                    <th width="180">Aksi</th>
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <?php
+                $no = 1;
+
+                while($row = mysqli_fetch_assoc($data))
+                {
+                ?>
+
+                <tr>
+
+                    <td><?= $no++; ?></td>
+
+                    <td><?= $row['nama_ruangan']; ?></td>
+
+                    <td>
+
+                        <a
+                        href="edit.php?id=<?= $row['id_ruangan']; ?>"
+                        class="btn btn-warning btn-sm">
+
+                        <i class="fa fa-edit"></i>
+                        Edit
+
+                        </a>
+
+                        <a
+                        href="hapus.php?id=<?= $row['id_ruangan']; ?>"
+                        class="btn btn-danger btn-sm"
+                        onclick="return confirm('Yakin ingin menghapus data ini?')">
+
+                        <i class="fa fa-trash"></i>
+                        Hapus
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                <?php } ?>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
 
 </div>
-
-<div class="card-body">
-
-<table class="table table-bordered">
-
-<tr>
-
-<th>No</th>
-<th>Nama Ruangan</th>
-<th>Keterangan</th>
-<th>Aksi</th>
-
-</tr>
 
 <?php
-$no=1;
-
-while($row=mysqli_fetch_assoc($data))
-{
+include '../../templates/footer.php';
 ?>
-
-<tr>
-
-<td><?= $no++; ?></td>
-
-<td><?= $row['nama_ruangan']; ?></td>
-
-<td><?= $row['keterangan']; ?></td>
-
-<td>
-
-<a
-href="edit.php?id=<?= $row['id_ruangan']; ?>"
-class="btn btn-warning btn-sm">
-
-Edit
-
-</a>
-
-<a
-href="hapus.php?id=<?= $row['id_ruangan']; ?>"
-class="btn btn-danger btn-sm"
-onclick="return confirm('Hapus Data?')">
-
-Hapus
-
-</a>
-
-</td>
-
-</tr>
-
-<?php } ?>
-
-</table>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</body>
-</html>

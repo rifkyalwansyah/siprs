@@ -1,208 +1,93 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['id']))
-{
-    header("Location: ../../login.php");
-    exit;
-}
-
 include '../../config/koneksi.php';
 
 $data = mysqli_query(
-    $conn,
-    "SELECT * FROM kategori_aset ORDER BY id_kategori DESC"
+$conn,
+"SELECT * FROM kategori_aset
+ORDER BY id_kategori DESC"
 );
+
+include '../../templates/header.php';
+include '../../templates/sidebar.php';
 ?>
 
-<!DOCTYPE html>
-<html>
+<div class="content">
 
-<head>
+<div class="topbar">
 
-<meta charset="UTF-8">
-
-<title>Master Data Kategori</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="../../assets/css/style.css">
-
-</head>
-
-<body>
-
-<!-- SIDEBAR -->
-
-<div class="sidebar">
-
-    <div class="logo">
-
-        <img src="../../assets/images/logo.png" alt="Logo">
-
-        <h5>
-            SIPRS
-            <br>
-            CIBARUSAH
-        </h5>
-
-    </div>
-
-    <div class="menu">
-
-        <a href="../../dashboard.php">
-            🏠 Dashboard
-        </a>
-
-        <a href="index.php" class="active">
-            📁 Master Data Kategori
-        </a>
-
-        <a href="#">
-            📦 Inventarisasi
-        </a>
-
-        <a href="#">
-            📋 Peminjaman
-        </a>
-
-        <a href="#">
-            🔧 Pemeliharaan
-        </a>
-
-        <a href="#">
-            📄 Laporan
-        </a>
-
-        <a href="#">
-            ⚙ Pengaturan
-        </a>
-
-        <a href="../../logout.php">
-            🚪 Logout
-        </a>
-
-    </div>
+<h3>Data Kategori Aset</h3>
 
 </div>
 
-<!-- CONTENT -->
+<div class="card card-custom">
 
-<div class="main">
+<div class="card-body">
 
-    <div class="topbar">
+<a
+href="tambah.php"
+class="btn btn-primary mb-3">
 
-        <h3>
-            MASTER DATA KATEGORI ASET
-        </h3>
+Tambah Kategori
 
-        <div>
-            Login Sebagai :
-            <b>
-                <?php echo $_SESSION['nama']; ?>
-            </b>
-        </div>
+</a>
 
-    </div>
+<table class="table table-bordered">
 
-    <div class="content">
+<tr>
 
-        <div class="card shadow">
+<th>No</th>
+<th>Nama Kategori</th>
+<th>Aksi</th>
 
-            <div class="card-header d-flex justify-content-between align-items-center">
+</tr>
 
-                <h5 class="mb-0">
-                    Data Kategori
-                </h5>
+<?php
+$no=1;
 
-                <a
-                href="tambah.php"
-                class="btn btn-primary">
+while($row=mysqli_fetch_assoc($data))
+{
+?>
 
-                + Tambah Kategori
+<tr>
 
-                </a>
+<td><?= $no++; ?></td>
 
-            </div>
+<td><?= $row['nama_kategori']; ?></td>
 
-            <div class="card-body">
+<td>
 
-                <table class="table table-bordered table-hover">
+<a
+href="edit.php?id=<?= $row['id_kategori']; ?>"
+class="btn btn-warning btn-sm">
 
-                    <thead>
+Edit
 
-                    <tr>
+</a>
 
-                        <th width="80">No</th>
-                        <th>Nama Kategori</th>
-                        <th>Keterangan</th>
-                        <th width="180">Aksi</th>
+<a
+href="hapus.php?id=<?= $row['id_kategori']; ?>"
+class="btn btn-danger btn-sm">
 
-                    </tr>
+Hapus
 
-                    </thead>
+</a>
 
-                    <tbody>
+</td>
 
-                    <?php
-                    $no = 1;
+</tr>
 
-                    while($row=mysqli_fetch_assoc($data))
-                    {
-                    ?>
+<?php } ?>
 
-                    <tr>
-
-                        <td>
-                            <?php echo $no++; ?>
-                        </td>
-
-                        <td>
-                            <?php echo $row['nama_kategori']; ?>
-                        </td>
-
-                        <td>
-                            <?php echo $row['keterangan']; ?>
-                        </td>
-
-                        <td>
-
-                            <a
-                            href="edit.php?id=<?php echo $row['id_kategori']; ?>"
-                            class="btn btn-warning btn-sm">
-
-                            Edit
-
-                            </a>
-
-                            <a
-                            href="hapus.php?id=<?php echo $row['id_kategori']; ?>"
-                            class="btn btn-danger btn-sm"
-                            onclick="return confirm('Yakin ingin menghapus data ini?')">
-
-                            Hapus
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                    <?php
-                    }
-                    ?>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-    </div>
+</table>
 
 </div>
 
-</body>
-</html>
+</div>
+
+</div>
+
+<?php
+include '../../templates/footer.php';
+?>

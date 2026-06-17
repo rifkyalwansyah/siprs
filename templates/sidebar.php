@@ -1,51 +1,54 @@
 <div class="sidebar">
 
-    <div class="logo">
+    <div class="logo text-center">
 
-        <img src="../../assets/images/logo.png">
+        <img
+        src="/siprs_cibarusah/assets/images/logo_kabupaten.png"
+        width="90"
+        class="mb-3">
 
-        <h5>
+        <h5 class="text-white fw-bold mb-1">
             SIPRS
-            <br>
-            KECAMATAN CIBARUSAH
         </h5>
 
-    </div>
+        <small class="text-white">
+            Kecamatan Cibarusah
+        </small>
 
-    <div class="menu">
-
-        <a href="../../dashboard.php">
-            🏠 Dashboard
-        </a>
-
-        <a href="../../master-data/kategori/index.php">
-            📁 Master Data Kategori
-        </a>
-
-        <a href="#">
-            📦 Inventarisasi Aset
-        </a>
-
-        <a href="#">
-            📋 Peminjaman
-        </a>
-
-        <a href="#">
-            🔧 Pemeliharaan
-        </a>
-
-        <a href="#">
-            📄 Laporan
-        </a>
-
-        <a href="#">
-            ⚙ Pengaturan Sistem
-        </a>
-
-        <a href="../../logout.php">
-            🚪 Logout
-        </a>
+        <hr class="text-white">
 
     </div>
+
+    <a href="/siprs_cibarusah/dashboard.php">
+        🏠 Dashboard
+    </a>
+
+    <a href="/siprs_cibarusah/master-data/kategori/index.php">
+        📂 Data Kategori
+    </a>
+
+    <a href="/siprs_cibarusah/master-data/ruangan/index.php">
+        🏢 Data Ruangan
+    </a>
+
+    <a href="/siprs_cibarusah/inventaris/index.php">
+        📦 Inventaris
+    </a>
+
+    <a href="/siprs_cibarusah/peminjaman/index.php">
+        📋 Peminjaman
+    </a>
+
+    <a href="/siprs_cibarusah/pemeliharaan/index.php">
+        🔧 Pemeliharaan
+    </a>
+
+    <a href="/siprs_cibarusah/laporan/index.php">
+        📄 Laporan
+    </a>
+
+    <a href="/siprs_cibarusah/logout.php">
+        🚪 Logout
+    </a>
 
 </div>
